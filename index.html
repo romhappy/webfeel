@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Évaluation des besoins</title>
+  <!-- Intégration de Bootstrap via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lien vers le fichier CSS externe -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light" style="font-family:Poppins, sans-serif;">
+
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="img/logo.svg" alt="Logo" class="img-fluid logo-centered" style="width: 150px;">
+      </a>
+      
+      <!-- Bouton "Contacter l'équipe" -->
+      <div class="ms-auto d-none d-lg-block">
+        <button class="btn btn-outline-primary" onclick="window.location.href='mailto:contact@webfeel.com'">Contacter l'équipe</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu hamburger pour mobile -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm d-lg-none">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:contact@webfeel.com">Contacter l'équipe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulaire principal -->
+  <div class="container py-4">
+    <h1 class="text-center mb-5">Évaluation des besoins</h1>
+    
+    <form id="assessment-form">
+      <!-- Section 1 : Santé somatique -->
+      <div class="domaine-section mb-4">
+        <h2>Santé somatique</h2>
+        <div class="mb-3">
+          <label for="q00difficulte" class="form-label">Avez vous un suivi généraliste régulier ?</label>
+          <div class="d-flex">
+            <div class="me-3">
+              <label class="form-label">Difficulté</label>
+              <select id="q00difficulte" class="form-select" data-type="difficulte">
+                <option value="0">Aucune difficulté</option>
+                <option value="1">Peu de difficultés</option>
+                <option value="2">Assez difficile</option>
+                <option value="3">Très difficile</option>
+              </select>
+            </div>
+            <div class="me-3">
+              <label class="form-label">Urgence</label>
+              <select id="q00urgence" class="form-select" data-type="urgence">
+                <option value="0">Aucune urgence</option>
+                <option value="1">Peu d'urgence</option>
+                <option value="2">Assez urgent</option>
+                <option value="3">Très urgent</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Aide en place</label>
+              <select id="q00aide" class="form-select" data-type="aide">
+                <option value="0">Aucune</option>
+                <option value="1">Peu</option>
+                <option value="2">Assez</option>
+                <option value="3">Beaucoup</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 : Santé psychique -->
+      <div class="domaine-section mb-4">
+        <h2>Santé psychique</h2>
+        <div class="mb-3">
+          <label for="q10difficulte" class="form-label">Etes vous accompagné par un professionnel de la santé mentale ?</label>
+          <div class="d-flex">
+            <div class="me-3">
+              <label class="form-label">Difficulté</label>
+              <select id="q10difficulte" class="form-select" data-type="difficulte">
+                <option value="0">Aucune difficulté</option>
+                <option value="1">Peu de difficultés</option>
+                <option value="2">Assez difficile</option>
+                <option value="3">Très difficile</option>
+              </select>
+            </div>
+            <div class="me-3">
+              <label class="form-label">Urgence</label>
+              <select id="q10urgence" class="form-select" data-type="urgence">
+                <option value="0">Aucune urgence</option>
+                <option value="1">Peu d'urgence</option>
+                <option value="2">Assez urgent</option>
+                <option value="3">Très urgent</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Aide en place</label>
+              <select id="q10aide" class="form-select" data-type="aide">
+                <option value="0">Aucune</option>
+                <option value="1">Peu</option>
+                <option value="2">Assez</option>
+                <option value="3">Beaucoup</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 : Lien social -->
+      <div class="domaine-section mb-4">
+        <h2>Lien social</h2>
+        <div class="mb-3">
+          <label for="q20difficulte" class="form-label">Avez-vous des difficultés pour sortir de chez vous ?</label>
+          <div class="d-flex">
+            <div class="me-3">
+              <label class="form-label">Difficulté</label>
+              <select id="q20difficulte" class="form-select" data-type="difficulte">
+                <option value="0">Aucune difficulté</option>
+                <option value="1">Peu de difficultés</option>
+                <option value="2">Assez difficile</option>
+                <option value="3">Très difficile</option>
+              </select>
+            </div>
+            <div class="me-3">
+              <label class="form-label">Urgence</label>
+              <select id="q20urgence" class="form-select" data-type="urgence">
+                <option value="0">Pas d'urgence</option>
+                <option value="1">Peu d'urgence</option>
+                <option value="2">Assez urgent</option>
+                <option value="3">Très urgent</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Aide en place</label>
+              <select id="q20aide" class="form-select" data-type="aide">
+                <option value="0">Aucune</option>
+                <option value="1">Peu</option>
+                <option value="2">Assez</option>
+                <option value="3">Beaucoup</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton pour générer le graphique -->
+      <div class="text-center my-4">
+        <button class="btn btn-primary" type="button" onclick="generateChart()">Générer le graphique</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Graphique radar -->
+  <div class="container">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+
+  <!-- Lien vers le fichier JavaScript externe -->
+  <script src="script.js"></script>
+
+  <!-- Scripts Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
